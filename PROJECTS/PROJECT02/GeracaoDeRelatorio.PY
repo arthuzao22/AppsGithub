@@ -25,7 +25,7 @@ def ativar_codigo():
     if isinstance(resultados, list):
         df_resultados = pd.DataFrame(resultados)
         
-        diretorio_relatorios = Path('Relatorios')
+        diretorio_relatorios = Path(__file__).parent / 'Relatorios'
         diretorio_relatorios.mkdir(parents=True, exist_ok=True)
         arquivo_excel = diretorio_relatorios / f'pastas_arquivos-{data()}.xlsx'
         
@@ -79,8 +79,6 @@ def lista_pastas_e_arquivos(caminho):
 #-------------------------------CRIAÇÃO DO FRONT-END DO APP----------------------------------
 #--------------------------------------------------------------------------------------------
 # Função de exemplo a ser chamada pelo botão
-def ativar_codigo():
-    messagebox.showinfo("Informação", f"Informe uma Url no campo")
 
 
 # Cria a janela principal
