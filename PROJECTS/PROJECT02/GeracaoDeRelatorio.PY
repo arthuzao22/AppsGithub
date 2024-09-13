@@ -1,3 +1,10 @@
+#-----------------------------------------------------------------------------------------------
+#   CRIADOR: ARTHUR DOS REIS GONÇALVES
+#   DATA: 12/09/2024
+#   VERSÃO: 1.0
+#   LINK DO APP: https://github.com/arthuzao22/AppsGithub/tree/main/PROJECTS/PROJECT02
+#-----------------------------------------------------------------------------------------------
+
 import tkinter as tk
 from tkinter import messagebox
 from PIL import Image, ImageTk
@@ -86,6 +93,10 @@ def lista_pastas_e_arquivos(caminho):
     
     else:
         return f"O diretório {caminho} não foi encontrado."
+
+#-----------------------------------------------------------------------------------------------
+#---------------------------------------VIEWS LOGO ABAIXO---------------------------------------
+#-----------------------------------------------------------------------------------------------
 
 # Cria a janela principal
 janela = tk.Tk()
