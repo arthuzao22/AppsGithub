@@ -2,16 +2,28 @@ import tkinter as tk
 from tkinter import messagebox
 from PIL import Image, ImageTk
 from pathlib import Path
-from tkinter import PhotoImage
 import pandas as pd
-import os
-from PyPDF2 import PdfReader 
+from PyPDF2 import PdfReader
 import datetime
+import ttkthemes
+
 
 # Pega a data mais nova para ser utilizada no código
 def data():
     agora = datetime.datetime.now()
     return agora.strftime('%Y-%m-%d_%H-%M-%S')
+
+def ativar_informacoes():
+    messagebox.showinfo("Como o App Funciona", 
+                        "Este aplicativo tem as seguintes funcionalidades:\n\n"
+                        "1. **Cadastro de Diretórios**: Insira o caminho da pasta para listar todos os arquivos PDF presentes.\n"
+                        "2. **Análise de PDFs**: O aplicativo analisa cada arquivo PDF e conta o número de páginas.\n"
+                        "3. **Geração de Relatórios**: Os resultados são salvos em um arquivo Excel na pasta 'Relatorios'.\n\n"
+                        "Para usar o aplicativo:\n"
+                        "1. Digite o caminho da pasta no campo de entrada.\n"
+                        "2. Clique em 'Ativar' para processar a pasta.\n"
+                        "3. O relatório será gerado e salvo na pasta 'Relatorios'.")
+ativar_informacoes()
 
 def ativar_codigo():
     entrada_texto = entrada.get()  # Obtém o texto do campo de entrada
@@ -75,18 +87,12 @@ def lista_pastas_e_arquivos(caminho):
     else:
         return f"O diretório {caminho} não foi encontrado."
 
-#--------------------------------------------------------------------------------------------
-#-------------------------------CRIAÇÃO DO FRONT-END DO APP----------------------------------
-#--------------------------------------------------------------------------------------------
-# Função de exemplo a ser chamada pelo botão
-
-
 # Cria a janela principal
 janela = tk.Tk()
 janela.title("Relatório Qtde de páginas a serem impressas")
 
 # Define o tamanho da janela
-janela.geometry("350x170")  # Largura x Altura
+janela.geometry("350x200")  # Ajustado para acomodar todos os widgets
 
 # Centraliza a janela na tela
 janela.eval('tk::PlaceWindow . center')
@@ -105,10 +111,6 @@ entrada.pack(pady=8)
 
 # Cria um botão que chama a função ativar_codigo quando pressionado
 botao = tk.Button(frame, text="Ativar", width=29, command=ativar_codigo, bg="#4CAF50", fg="white", font=("Arial", 10))
-botao.pack(pady=10)
-
-# Cria um botão que chama a função ativar_codigo quando pressionado
-botao = tk.Button(frame, text="Ativar", width=29, command=ativar_codigo, fg="white", font=("Arial", 10))
 botao.pack(pady=10)
 
 # Inicia o loop principal da interface gráfica
