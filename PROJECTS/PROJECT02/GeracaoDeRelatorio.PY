@@ -13,7 +13,7 @@ import pandas as pd
 from PyPDF2 import PdfReader
 import datetime
 import ttkthemes
-
+import os
 
 # Pega a data mais nova para ser utilizada no código
 def data():
@@ -44,7 +44,9 @@ def ativar_codigo():
     if isinstance(resultados, list):
         df_resultados = pd.DataFrame(resultados)
         
-        diretorio_relatorios = Path(__file__).parent / 'Relatorios'
+        # Obtém o diretório atual do script
+        diretorio_atual = Path(os.path.dirname(os.path.abspath(__file__)))
+        diretorio_relatorios = diretorio_atual / 'RELATORIOS'
         diretorio_relatorios.mkdir(parents=True, exist_ok=True)
         arquivo_excel = diretorio_relatorios / f'pastas_arquivos-{data()}.xlsx'
         
