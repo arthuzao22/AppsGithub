@@ -48,6 +48,7 @@ def ativar_codigo():
         diretorio_atual = Path(os.path.dirname(os.path.abspath(__file__)))
         diretorio_relatorios = diretorio_atual / 'RELATORIOS'
         diretorio_relatorios.mkdir(parents=True, exist_ok=True)
+        
         arquivo_excel = diretorio_relatorios / f'pastas_arquivos-{data()}.xlsx'
         
         # Apaga o arquivo se já existir
