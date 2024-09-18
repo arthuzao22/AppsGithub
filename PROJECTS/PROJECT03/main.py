@@ -95,12 +95,13 @@ p, li { white-space: pre-wrap; }
         self.pushButton_4.setStyleSheet("font-weight: bold;")
         self.pushButton_4.clicked.connect(self.on_buscar_pdf_click)  # Conectar ao evento
 
-
         # Tabela
         self.tableWidget = QTableWidget(self)
         self.tableWidget.setGeometry(15, 260, 541, 171)
         self.tableWidget.setColumnCount(1)
         self.tableWidget.setHorizontalHeaderLabels(["Carregando Informações"])
+        # Ajustar a largura da coluna para ocupar o espaço disponível
+        self.tableWidget.horizontalHeader().setStretchLastSection(True)
 
     def update_table(self):
         self.tableWidget.setRowCount(len(self.nomes_armazenados))
@@ -235,6 +236,8 @@ p, li { white-space: pre-wrap; }
     # Função para o botão "Separar PDF"
     def on_separar_click(self):
         QMessageBox.information(self, "Separar", "Função para Separar PDF ativada!")
+        self.nomes_armazenados.clear() #SERVE PARA LIMPAR O VETOR 
+
         def limpar_pasta(pasta_destino):
             for item in os.listdir(pasta_destino):
                 caminho_item = os.path.join(pasta_destino, item)
