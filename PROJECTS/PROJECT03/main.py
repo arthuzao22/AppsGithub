@@ -15,6 +15,8 @@ class MainWindow(QMainWindow):
         self.center_window()  # Centraliza a janela
         self.initUI()
         self.texto_adicionado = ""  # Inicializa o atributo
+        self.nomes_armazenados = []
+        
 
         
     def center_window(self):
@@ -100,16 +102,11 @@ p, li { white-space: pre-wrap; }
         self.tableWidget.setColumnCount(1)
         self.tableWidget.setHorizontalHeaderLabels(["Carregando Informações"])
 
-    def update_table(self, Nomes):
-        #print(Nomes)  # Verifica o que está sendo passado para a função
-
-        self.tableWidget.setRowCount(len(Nomes))
-        for i, nome in enumerate(Nomes):
-            print(i)
-        
-        # Barra de status
-        self.statusbar = QStatusBar(self)
-        self.setStatusBar(self.statusbar)
+    def update_table(self):
+        self.tableWidget.setRowCount(len(self.nomes_armazenados))
+        for i, nome in enumerate(self.nomes_armazenados):
+            item = QTableWidgetItem(nome)
+            self.tableWidget.setItem(i, 0, item)
 
     # Função para o botão "Adicionar"
     def on_adicionar_click(self):
@@ -122,6 +119,8 @@ p, li { white-space: pre-wrap; }
     # Função para o botão "Renomear PDF"
     def on_renomear_click(self):
         QMessageBox.information(self, "Renomear", "Função para renomear PDF ativada!")
+        self.nomes_armazenados.clear() #SERVE PARA LIMPAR O VETOR 
+
         def LerDados():
             """Lê o banco de dados de nomes e CPFs."""
             caminhoBanco = r'..\PROJECT03\BdNomes\NomesCpfsBD.xlsx'
@@ -191,12 +190,12 @@ p, li { white-space: pre-wrap; }
             """Renomeia o arquivo PDF com base no nome encontrado."""
             nomeInput = self.texto_adicionado
                 
-            
             try:
                 novo_nome = f"{dt}-{nomeInput}-{nome}.pdf"
                 caminho_novo = os.path.join(CaminhoDoDiretorio(), novo_nome)
                 os.rename(caminho_pdf, caminho_novo)
-                return f"Arquivo renomeado para: {novo_nome}"
+
+                return f"Arquivo renomeado para: {caminho_novo}"
             except:
                 return "NOME não encontrado para renomeação."
 
@@ -210,7 +209,7 @@ p, li { white-space: pre-wrap; }
             if conteudo is not None:
                 # Encontrar nomes no conteúdo extraído
                 nomes_encontrados = encontrar_nomes(conteudo)
-                #print(nomes_encontrados)
+                #print(nomes_encontrados)                
 
                 # Carregar dados de nomes e CPFs
                 banco_dados = LerDados()
@@ -218,13 +217,13 @@ p, li { white-space: pre-wrap; }
 
                 # Verificar se algum nome corresponde ao banco de dados
                 nome = verificar_nomes_com_banco(nomes_encontrados, banco_dados)
-                #print(nome)
-                
+                #print(nome) 
+
                 # Renomear o arquivo conforme o banco de dados
                 alertNomesRenomeados = RenomearArquivoGeradoPeloLerPdf(caminho_pdf, nome, dt)
-                #print(alertNomesRenomeados)
-                Nomes = [alertNomesRenomeados]
-                self.update_table(Nomes)
+                print(alertNomesRenomeados)
+                self.nomes_armazenados.append(nome)
+                self.update_table()
 
         # CHAMA O MAIN
         cont = 1
@@ -279,7 +278,8 @@ p, li { white-space: pre-wrap; }
                     with open(caminho_para_salvar_pdf, 'wb') as nova_pagina:
                         escritor_pdf.write(nova_pagina)
 
-                    print(f"Página {numero_pagina + 1} salva como {caminho_para_salvar_pdf}")
+                    self.nomes_armazenados.append(f"Página {numero_pagina + 1} salva como {caminho_para_salvar_pdf}")
+                    self.update_table()
 
         # Exemplo de uso com um arquivo local
         caminho_pdf_url = self.pdf_files
