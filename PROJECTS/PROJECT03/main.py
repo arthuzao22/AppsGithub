@@ -15,8 +15,6 @@ class MainWindow(QMainWindow):
         self.center_window()  # Centraliza a janela
         self.initUI()
         self.texto_adicionado = ""  # Inicializa o atributo
-        self.nomes_armazenados = []
-
 
         
     def center_window(self):
@@ -102,12 +100,13 @@ p, li { white-space: pre-wrap; }
         self.tableWidget.setColumnCount(1)
         self.tableWidget.setHorizontalHeaderLabels(["Carregando Informações"])
 
-    def update_table(self):
-        self.tableWidget.setRowCount(len(self.nomes_armazenados))
-        for i, nome in enumerate(self.nomes_armazenados):
-            item = QTableWidgetItem(nome)
-            self.tableWidget.setItem(i, 0, item)
+    def update_table(self, Nomes):
+        #print(Nomes)  # Verifica o que está sendo passado para a função
 
+        self.tableWidget.setRowCount(len(Nomes))
+        for i, nome in enumerate(Nomes):
+            print(i)
+        
         # Barra de status
         self.statusbar = QStatusBar(self)
         self.setStatusBar(self.statusbar)
@@ -117,7 +116,7 @@ p, li { white-space: pre-wrap; }
         if self.texto_adicionado is None:
             self.texto_adicionado = " "
         self.texto_adicionado = self.lineEdit.text()  # Armazena o texto da linha de entrada
-        QMessageBox.information(self, "Informação", f"Texto adicionado: {self.texto_adicionado}")
+        QMessageBox.information(self, "Informação", f"Texto adicionado ao arquivo: {self.texto_adicionado}")
 
 
     # Função para o botão "Renomear PDF"
@@ -211,7 +210,7 @@ p, li { white-space: pre-wrap; }
             if conteudo is not None:
                 # Encontrar nomes no conteúdo extraído
                 nomes_encontrados = encontrar_nomes(conteudo)
-                print(nomes_encontrados)
+                #print(nomes_encontrados)
 
                 # Carregar dados de nomes e CPFs
                 banco_dados = LerDados()
@@ -219,11 +218,13 @@ p, li { white-space: pre-wrap; }
 
                 # Verificar se algum nome corresponde ao banco de dados
                 nome = verificar_nomes_com_banco(nomes_encontrados, banco_dados)
-                print(nome)
+                #print(nome)
                 
                 # Renomear o arquivo conforme o banco de dados
                 alertNomesRenomeados = RenomearArquivoGeradoPeloLerPdf(caminho_pdf, nome, dt)
-                print(alertNomesRenomeados)
+                #print(alertNomesRenomeados)
+                Nomes = [alertNomesRenomeados]
+                self.update_table(Nomes)
 
         # CHAMA O MAIN
         cont = 1
@@ -286,7 +287,6 @@ p, li { white-space: pre-wrap; }
 
         # Separa as páginas do PDF
         separar_paginas_pdf(caminho_arquivo_pdf)
-
 
     # Função para o botão "Sair"
     def on_buscar_pdf_click(self):
