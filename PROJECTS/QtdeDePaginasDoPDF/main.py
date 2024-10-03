@@ -1,12 +1,12 @@
 #-----------------------------------------------------------------------------------------------
 #   CRIADOR: ARTHUR DOS REIS GONÇALVES
 #   DATA: 12/09/2024
-#   VERSÃO: 1.0
+#   VERSÃO: 2.0
 #   LINK DO APP: https://github.com/arthuzao22/AppsGithub/tree/main/PROJECTS/PROJECT02
 #-----------------------------------------------------------------------------------------------
 
 import tkinter as tk
-from tkinter import messagebox
+from tkinter import messagebox, filedialog
 from PIL import Image, ImageTk
 from pathlib import Path
 import pandas as pd
@@ -31,6 +31,13 @@ def ativar_informacoes():
                         "2. Clique em 'Ativar' para processar a pasta.\n"
                         "3. O relatório será gerado e salvo na pasta 'Relatorios'.")
 ativar_informacoes()
+
+def SelecionarPasta():
+    pasta_selecionada = filedialog.askdirectory()
+    
+    if pasta_selecionada:
+        entrada.delete(0, tk.END)  # Limpa o campo de entrada
+        entrada.insert(0, pasta_selecionada)  # Insere o caminho da pasta
 
 def ativar_codigo():
     entrada_texto = entrada.get()  # Obtém o texto do campo de entrada
@@ -119,9 +126,14 @@ frame.pack(expand=True)
 titulo = tk.Label(frame, text="Digite a URL da pasta: ", font=("Arial", 12))
 titulo.pack(pady=10)
 
+# Cria um botão que chama a função SelecionarPasta quando pressionado
+botao = tk.Button(frame, text="Selecionar Pasta", width=29, command=SelecionarPasta, bg="#4CAF50", fg="white", font=("Arial", 10))
+botao.pack(pady=10)
+
 # Cria um campo de entrada
 entrada = tk.Entry(frame, width=40)
 entrada.pack(pady=8)
+
 
 # Cria um botão que chama a função ativar_codigo quando pressionado
 botao = tk.Button(frame, text="Ativar", width=29, command=ativar_codigo, bg="#4CAF50", fg="white", font=("Arial", 10))

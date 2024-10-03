@@ -161,7 +161,7 @@ p, li { white-space: pre-wrap; }
 
         def LerDados():
             """Lê o banco de dados de nomes e CPFs."""
-            caminhoBanco = r'..\PROJECT03\BdNomes\NomesCpfsBD.xlsx'
+            caminhoBanco = r'..\Distrinchador&RenomeadorDePdf\BdNomes\NomesCpfsBD.xlsx'
             lerBancoDeDados = pd.read_excel(caminhoBanco)
 
             return lerBancoDeDados
@@ -210,18 +210,18 @@ p, li { white-space: pre-wrap; }
                 return "verificar_nomes_com_banco não esta funcionando."
 
         def QtdeNomesDosArquivosNaPastaPdfSeparado():
-            nomes_arquivos = os.listdir("../PROJECT03/PdfSeparado")
+            nomes_arquivos = os.listdir("../Distrinchador&RenomeadorDePdf/PdfSeparado")
             qtde_arquivos = len(nomes_arquivos)
 
             return qtde_arquivos
 
         def NomesDosArquivosNaPastaPdfSeparado():
-            nomes_arquivos = os.listdir("../PROJECT03/PdfSeparado")
+            nomes_arquivos = os.listdir("../Distrinchador&RenomeadorDePdf/PdfSeparado")
 
             return nomes_arquivos
 
         def CaminhoDoDiretorio():
-            caminho = f"../PROJECT03/PdfSeparado"
+            caminho = f"../Distrinchador&RenomeadorDePdf/PdfSeparado"
             return caminho
 
         def RenomearArquivoGeradoPeloLerPdf(caminho_pdf, nome, dt):
@@ -239,7 +239,7 @@ p, li { white-space: pre-wrap; }
 
         def main(cont):
             # Caminho do arquivo PDF a ser lido
-            caminho_pdf = f'../PROJECT03/PdfSeparado/{cont}.pdf'
+            caminho_pdf = f'../Distrinchador&RenomeadorDePdf/PdfSeparado/{cont}.pdf'
 
             # Abrir o PDF e extrair o conteúdo
             conteudo = abrir_pdf(caminho_pdf)
@@ -295,7 +295,7 @@ p, li { white-space: pre-wrap; }
                 total_paginas = len(leitor_pdf.pages)
 
                 # Define o diretório de destino
-                pasta_destino = r"..\PROJECT03\PdfSeparado"
+                pasta_destino = r"..\Distrinchador&RenomeadorDePdf\PdfSeparado"
 
                 # Cria o diretório se ele não existir
                 if not os.path.exists(pasta_destino):
