@@ -1,0 +1,18 @@
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+                                                       |BuscarDadosDaApiDaOmie|
+
+    1 - Codigo gerado para fazer a analise, manipulação e extração de dados da API da OMIE.
+    2 - Temos 3 tipos de principais arquivos:
+        2.1 - app_LISTAR_CONTAS_A_RECEBER - O código usado para buscar o endpoint "ListarContasPagar" da API OMIE agora resolve o 
+            problema de paginação utilizando um loop "for". A cada iteração, a variável "cont" é incrementada ("cont += 1"), permitindo 
+            que o código faça chamadas sucessivas para cada página de resultados. As informações encontradas são armazenadas em um vetor, 
+            que posteriormente é utilizado pelo pandas para gerar um arquivo CSV.
+        2.2 - app_LISTAR_MOVIMENTOS - Mesma logica do app_LISTAR_CONTAS_A_RECEBER, porem usado para listar TODOS os movimentos da OMIE.
+        2.3 - UpdateParaBD - Esse codigo serve para pegar o CSV gerado pelo app_LISTAR_CONTAS_A_RECEBER e o app_LISTAR_MOVIMENTOS nas
+            pastas de "Dados", onde é salvo com o respectivo nome que vc der na hora de rodar o codigo. Assim ja com o nome do CSV configurado
+            ele insere no seu banco de dados local(MySql).
+    3 - Na pasta CATEGORIA, existe todas as categorias existentes nas contas, e foi extraida manualmente.
+    4 - Os clientes tbm foi extraido manualmente, assim deixando fixo eles.
+    5 - Pasta CONTASBANCO tbm fixo, porem sempre precisa verificar se não há novos.
+    6 - Na pasta SQL temos o SQL que pega os dados que foi extraido e ja inserido no banco de dados para fazer a manipulação. Voce simplismente 
+        tem que jogar ele no sql Server Management Studio 20, ajustar os parametros e roda-lo, assim gerando o relatorio.

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Bancos</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Bancos</h1>
+    <table id="bancosTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Código</th>
+                <!-- Adicione mais cabeçalhos conforme necessário -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Dados serão inseridos aqui -->
+        </tbody>
+    </table>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const url = 'http://app.omie.com.br/api/v1/geral/bancos/';
+    const payload = {
+        "call": "ListarBancos",
+        "app_key": "1102036231296",
+        "app_secret": "9cf2dd9c9b2b1c714d3c9ee792f296ed",
+        "param": [
+            {
+                "pagina": 1,
+                "registros_por_pagina": 1000000,
+                "apenas_importado_api": "N"
+            }
+        ]
+    };
+
+    // Função para fazer a requisição
+    const fetchData = async () => {
+        try {
+            const response = await fetch(url, {
+                method: 'POST', // O método POST é geralmente utilizado para enviar dados
+                headers: {
+                    'Content-Type': 'application/json' // Define o tipo de conteúdo como JSON
+                },
+                body: JSON.stringify(payload) // Converte o payload para uma string JSON
+            });
+
+            if (!response.ok) { // Verifica se a resposta foi bem-sucedida
+                throw new Error('Network response was not ok');
+            }
+
+            const data = await response.json(); // Converte a resposta para JSON
+            console.log(data); // Imprime os dados recebidos
+
+        } catch (error) {
+            console.error('There has been a problem with your fetch operation:', error);
+        }
+    };
+    console.log(fetchData());
+    
+    fetchData(); // Chama a função para fazer a requisição
+});
+
+    </script>
+</body>
+</html>

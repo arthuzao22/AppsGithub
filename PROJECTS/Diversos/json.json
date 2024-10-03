@@ -1,0 +1,358 @@
+{
+    "pagina": 2,
+    "total_de_paginas": 3991,
+    "registros": 50,
+    "total_de_registros": 199506,
+    "clientes_cadastro_resumido": [
+      {
+        "cnpj_cpf": "14.512.528/0001-54",
+        "codigo_cliente": 312907094,
+        "codigo_cliente_integracao": "38547",
+        "nome_fantasia": "SOLIS TRANSPORTES",
+        "razao_social": "SOLIS LOGISTICA E TRANSPORTE EIRELI"
+      },
+      {
+        "cnpj_cpf": "",
+        "codigo_cliente": 312907096,
+        "codigo_cliente_integracao": "38614",
+        "nome_fantasia": "LOGBEE",
+        "razao_social": "MAGALU LOG SERVICOS LOGISTICOS LTDA"
+      },
+      {
+        "cnpj_cpf": "",
+        "codigo_cliente": 312907098,
+        "codigo_cliente_integracao": "38548",
+        "nome_fantasia": "AGV LOGISTICA - PARANÁ",
+        "razao_social": "3PL BRASIL LOGISTICA S.A."
+      },
+      {
+        "cnpj_cpf": "053.683.707-41",
+        "codigo_cliente": 312907103,
+        "codigo_cliente_integracao": "38549",
+        "nome_fantasia": "GEODIS",
+        "razao_social": "Geodis Logistica do Brasil Ltda"
+      },
+      {
+        "cnpj_cpf": "343.361.058-47",
+        "codigo_cliente": 312907105,
+        "codigo_cliente_integracao": "38550",
+        "nome_fantasia": "LEROY MERLIN - RIO DE JANEIRO",
+        "razao_social": "LEROY MERLIN COMPANHIA BRASILEIRA DE BRICOLAGEM"
+      },
+      {
+        "cnpj_cpf": "07.931.931/0001-52",
+        "codigo_cliente": 312907110,
+        "codigo_cliente_integracao": "38551",
+        "nome_fantasia": "MUNDO VERDE",
+        "razao_social": "DISTRIBUIDORA MUNDO VERDE LTDA"
+      },
+      {
+        "cnpj_cpf": "018.264.513-40",
+        "codigo_cliente": 312907112,
+        "codigo_cliente_integracao": "38552",
+        "nome_fantasia": "PORTAL SOLAR",
+        "razao_social": "PORTAL SOLAR EQUIPAMENTOS SOLARES LTDA"
+      },
+      {
+        "cnpj_cpf": "363.221.328-30",
+        "codigo_cliente": 312907114,
+        "codigo_cliente_integracao": "38553",
+        "nome_fantasia": "LEROY MERLIN - CAJAMAR",
+        "razao_social": "LEROY MERLIN COMPANHIA BRASILEIRA DE BRICOLAGEM"
+      },
+      {
+        "cnpj_cpf": "",
+        "codigo_cliente": 312907116,
+        "codigo_cliente_integracao": "38554",
+        "nome_fantasia": "MERCADO ENVIOS LOGISTICS LAST MILE",
+        "razao_social": "MERCADO ENVIOS SERVICOS DE LOGISTICA LTDA"
+      },
+      {
+        "cnpj_cpf": "",
+        "codigo_cliente": 312907118,
+        "codigo_cliente_integracao": "38615",
+        "nome_fantasia": "AGV LOGISTICA SA",
+        "razao_social": "AGV LOGISTICA SA"
+      },
+      {
+        "cnpj_cpf": "432.478.608-94",
+        "codigo_cliente": 312907120,
+        "codigo_cliente_integracao": "38616",
+        "nome_fantasia": "MERCADO ENVIOS - LOUVEIRA",
+        "razao_social": "MERCADO ENVIOS SERVICOS DE LOGISTICA LTDA"
+      },
+      {
+        "cnpj_cpf": "15.217.448/0001-39",
+        "codigo_cliente": 312907122,
+        "codigo_cliente_integracao": "38617",
+        "nome_fantasia": "20",
+        "razao_social": "21"
+      },
+      {
+        "cnpj_cpf": "394.668.058-51",
+        "codigo_cliente": 312907124,
+        "codigo_cliente_integracao": "38618",
+        "nome_fantasia": "MERCADO ENVIOS - VILA GUILHERME SP",
+        "razao_social": "MERCADO ENVIOS SERVICOS DE LOGISTICA LTDA"
+      },
+      {
+        "cnpj_cpf": "016.747.005-12",
+        "codigo_cliente": 312907126,
+        "codigo_cliente_integracao": "38619",
+        "nome_fantasia": "Vanzan",
+        "razao_social": "Matheus Figueiredo Zö"
+      },
+      {
+        "cnpj_cpf": "389.881.168-95",
+        "codigo_cliente": 312907128,
+        "codigo_cliente_integracao": "38555",
+        "nome_fantasia": "De V. Martins",
+        "razao_social": "Juliana"
+      },
+      {
+        "cnpj_cpf": "803.025.056-87",
+        "codigo_cliente": 312907130,
+        "codigo_cliente_integracao": "38556",
+        "nome_fantasia": "Silva",
+        "razao_social": "Flávia de Souza Cunha Santos"
+      },
+      {
+        "cnpj_cpf": "265.003.578-17",
+        "codigo_cliente": 312907132,
+        "codigo_cliente_integracao": "38620",
+        "nome_fantasia": "Ribeiro Pereira",
+        "razao_social": "Vera Ane"
+      },
+      {
+        "cnpj_cpf": "",
+        "codigo_cliente": 312907134,
+        "codigo_cliente_integracao": "38621",
+        "nome_fantasia": "Strob",
+        "razao_social": "Juliane"
+      },
+      {
+        "cnpj_cpf": "522.885.298-06",
+        "codigo_cliente": 312907136,
+        "codigo_cliente_integracao": "38622",
+        "nome_fantasia": "Gasperoni",
+        "razao_social": "Barbeiro Heverson"
+      },
+      {
+        "cnpj_cpf": "012.126.507-27",
+        "codigo_cliente": 312907138,
+        "codigo_cliente_integracao": "861",
+        "nome_fantasia": "ADRIANA NINO BISCAIA FERNANDES",
+        "razao_social": "ADRIANA NINO BISCAIA FERNANDES"
+      },
+      {
+        "cnpj_cpf": "028.535.307-10",
+        "codigo_cliente": 312907140,
+        "codigo_cliente_integracao": "38557",
+        "nome_fantasia": "Rausch",
+        "razao_social": "Carlos"
+      },
+      {
+        "cnpj_cpf": "313.171.888-96",
+        "codigo_cliente": 312907142,
+        "codigo_cliente_integracao": "38558",
+        "nome_fantasia": "H2HRH",
+        "razao_social": "Fabiano Lima da Paz"
+      },
+      {
+        "cnpj_cpf": "420.199.098-20",
+        "codigo_cliente": 312907144,
+        "codigo_cliente_integracao": "38559",
+        "nome_fantasia": "ADRIANA MIRANDA PALMA SCHENKEL",
+        "razao_social": "Lucas Santana"
+      },
+      {
+        "cnpj_cpf": "25.674.235/0001-90",
+        "codigo_cliente": 312907146,
+        "codigo_cliente_integracao": "38560",
+        "nome_fantasia": "MUNDINVEST",
+        "razao_social": "MUNDINVEST"
+      },
+      {
+        "cnpj_cpf": "070.598.317-03",
+        "codigo_cliente": 312907148,
+        "codigo_cliente_integracao": "38561",
+        "nome_fantasia": "ADRIANA SILVEIRA MANDARINO",
+        "razao_social": "ADRIANA SILVEIRA MANDARINO"
+      },
+      {
+        "cnpj_cpf": "232.352.198-54",
+        "codigo_cliente": 312907173,
+        "codigo_cliente_integracao": "38623",
+        "nome_fantasia": "S. R. BEZERRA SILVEIRA",
+        "razao_social": "Ricardo Teodoro"
+      },
+      {
+        "cnpj_cpf": "120.054.389-01",
+        "codigo_cliente": 312907175,
+        "codigo_cliente_integracao": "38562",
+        "nome_fantasia": "PlanoFit",
+        "razao_social": "Feitoza Leo"
+      },
+      {
+        "cnpj_cpf": "199.252.630-34",
+        "codigo_cliente": 312907177,
+        "codigo_cliente_integracao": "38563",
+        "nome_fantasia": "Ruwer",
+        "razao_social": "Magaly"
+      },
+      {
+        "cnpj_cpf": "274.938.907-06",
+        "codigo_cliente": 312907179,
+        "codigo_cliente_integracao": "38564",
+        "nome_fantasia": "AFRANIO SILVA JARDIM",
+        "razao_social": "AFRANIO SILVA JARDIM"
+      },
+      {
+        "cnpj_cpf": "626.067.947-53",
+        "codigo_cliente": 312907181,
+        "codigo_cliente_integracao": "38565",
+        "nome_fantasia": "ALBERTO HENRIQUE DE PINHO CANELLAS",
+        "razao_social": "ALBERTO HENRIQUE DE PINHO CANELLAS"
+      },
+      {
+        "cnpj_cpf": "134.777.477-71",
+        "codigo_cliente": 312907183,
+        "codigo_cliente_integracao": "38566",
+        "nome_fantasia": "Ishii",
+        "razao_social": "Joelinda Pink"
+      },
+      {
+        "cnpj_cpf": "018.843.794-00",
+        "codigo_cliente": 312907211,
+        "codigo_cliente_integracao": "38567",
+        "nome_fantasia": "Acioli",
+        "razao_social": "Hidalgo"
+      },
+      {
+        "cnpj_cpf": "142.787.568-52",
+        "codigo_cliente": 312907213,
+        "codigo_cliente_integracao": "38568",
+        "nome_fantasia": "Maliniak",
+        "razao_social": "Adauto Ratão Sandin"
+      },
+      {
+        "cnpj_cpf": "091.301.977-16",
+        "codigo_cliente": 312907215,
+        "codigo_cliente_integracao": "38569",
+        "nome_fantasia": "Brito",
+        "razao_social": "Raphaela"
+      },
+      {
+        "cnpj_cpf": "443.392.498-90",
+        "codigo_cliente": 312907217,
+        "codigo_cliente_integracao": "38570",
+        "nome_fantasia": "ALBINO ANGELO SANTAROSSA",
+        "razao_social": "Henrique Birrer"
+      },
+      {
+        "cnpj_cpf": "072.874.099-09",
+        "codigo_cliente": 312907219,
+        "codigo_cliente_integracao": "38571",
+        "nome_fantasia": "Garibotti",
+        "razao_social": "Davi"
+      },
+      {
+        "cnpj_cpf": "425.797.368-40",
+        "codigo_cliente": 312907221,
+        "codigo_cliente_integracao": "38572",
+        "nome_fantasia": "LUCIANA LEITE SANTA ROSSA",
+        "razao_social": "Gabriel Gil"
+      },
+      {
+        "cnpj_cpf": "072.582.578-29",
+        "codigo_cliente": 312907223,
+        "codigo_cliente_integracao": "38573",
+        "nome_fantasia": "Pacheco",
+        "razao_social": "Liliane Rodrigues de Avellar"
+      },
+      {
+        "cnpj_cpf": "001.860.092-16",
+        "codigo_cliente": 312907227,
+        "codigo_cliente_integracao": "38624",
+        "nome_fantasia": "F M De Miranda",
+        "razao_social": "Helio Gisele Borges"
+      },
+      {
+        "cnpj_cpf": "009.287.127-53",
+        "codigo_cliente": 312907229,
+        "codigo_cliente_integracao": "38574",
+        "nome_fantasia": "ALDNEY ZACHARIAS PEIXOTO",
+        "razao_social": "ALDNEY ZACHARIAS PEIXOTO"
+      },
+      {
+        "cnpj_cpf": "104.502.087-70",
+        "codigo_cliente": 312907231,
+        "codigo_cliente_integracao": "38575",
+        "nome_fantasia": "ISABEL ANTONIETTA RUBINO PEIXOTO",
+        "razao_social": "ISABEL ANTONIETTA RUBINO PEIXOTO"
+      },
+      {
+        "cnpj_cpf": "022.231.577-69",
+        "codigo_cliente": 312907233,
+        "codigo_cliente_integracao": "38576",
+        "nome_fantasia": "ALESSANDRA HONORATO NEVES",
+        "razao_social": "ALESSANDRA HONORATO NEVES"
+      },
+      {
+        "cnpj_cpf": "097.237.139-77",
+        "codigo_cliente": 312907235,
+        "codigo_cliente_integracao": "38577",
+        "nome_fantasia": "ALEXANDER ARAUJO DE SOUZA",
+        "razao_social": "Noe Muller"
+      },
+      {
+        "cnpj_cpf": "016.346.001-93",
+        "codigo_cliente": 312907237,
+        "codigo_cliente_integracao": "38578",
+        "nome_fantasia": "Araujo",
+        "razao_social": "Gabriela"
+      },
+      {
+        "cnpj_cpf": "004.910.427-60",
+        "codigo_cliente": 312907239,
+        "codigo_cliente_integracao": "38579",
+        "nome_fantasia": "ALEXANDRA CARVALHO FERES",
+        "razao_social": "ALEXANDRA CARVALHO FERES"
+      },
+      {
+        "cnpj_cpf": "342.304.998-76",
+        "codigo_cliente": 312907241,
+        "codigo_cliente_integracao": "38580",
+        "nome_fantasia": "ALEXANDRA PAIVA D AVILA MELO",
+        "razao_social": "Felipe Starck"
+      },
+      {
+        "cnpj_cpf": "307.829.027-15",
+        "codigo_cliente": 312907243,
+        "codigo_cliente_integracao": "38581",
+        "nome_fantasia": "ALEXANDRE ARBACH",
+        "razao_social": "ALEXANDRE ARBACH"
+      },
+      {
+        "cnpj_cpf": "419.292.858-25",
+        "codigo_cliente": 312907245,
+        "codigo_cliente_integracao": "38582",
+        "nome_fantasia": "Rossi",
+        "razao_social": "Natália"
+      },
+      {
+        "cnpj_cpf": "077.472.299-17",
+        "codigo_cliente": 312907247,
+        "codigo_cliente_integracao": "38583",
+        "nome_fantasia": "Zortea",
+        "razao_social": "Simone"
+      },
+      {
+        "cnpj_cpf": "020.380.054-00",
+        "codigo_cliente": 312907249,
+        "codigo_cliente_integracao": "38584",
+        "nome_fantasia": "M. Belmont",
+        "razao_social": "Fernanda"
+      }
+    ]
+  }
