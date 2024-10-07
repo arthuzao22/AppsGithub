@@ -3,7 +3,7 @@ import pandas as pd
 import shutil
 
 def PegarBaseDeDados():
-    caminhoBanco = r'..\PROJECTS\TESTE\CaminhosDosArquivos\pastas_arquivos-2024-10-03_12-18-17.xlsx'
+    caminhoBanco = r'..\SeparadorFuriaMaxima\CaminhosDosArquivos\BancoDeCaminhos\pastas_arquivos.xlsx'
     if os.path.exists(caminhoBanco):  # Verifica se o arquivo existe
         df = pd.read_excel(caminhoBanco)
         caminhos = df['Caminho'].tolist()  # Converte para lista
@@ -32,13 +32,17 @@ def MovedorDePasta(caminhos, caminho_novo):
         print("Caminho não encontrado!")
 
 def PegarNovoCaminho():
-    caminho_novo = r"D:\arquivos_movidos"
+    caminho_novo = r"..\SeparadorFuriaMaxima\CaminhosDosArquivos\ArquivosSeparados"
 
     if os.path.exists(caminho_novo):  # Verifica se o diretório existe
-        return caminho_novo
-    else:
-        print('Caminho não encontrado!')
-        return None
+        shutil.rmtree(caminho_novo)  # Remove o diretório existente
+        print(f'Diretório {caminho_novo} removido.')
+    
+    os.makedirs(caminho_novo)  # Cria um novo diretório
+    print(f'Diretório {caminho_novo} criado.')
+    
+    return caminho_novo
+
 
 # Execução das funções
 caminhos = PegarBaseDeDados()

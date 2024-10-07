@@ -224,12 +224,12 @@ p, li { white-space: pre-wrap; }
             caminho = f"../Distrinchador&RenomeadorDePdf/PdfSeparado"
             return caminho
 
-        def RenomearArquivoGeradoPeloLerPdf(caminho_pdf, nome, dt):
+        def RenomearArquivoGeradoPeloLerPdf(caminho_pdf, nome):
             """Renomeia o arquivo PDF com base no nome encontrado."""
             nomeInput = self.texto_adicionado
                 
             try:
-                novo_nome = f"{dt}-{nomeInput}-{nome}.pdf"
+                novo_nome = f"{nomeInput}-{nome}.pdf"
                 caminho_novo = os.path.join(CaminhoDoDiretorio(), novo_nome)
                 os.rename(caminho_pdf, caminho_novo)
 
@@ -258,7 +258,7 @@ p, li { white-space: pre-wrap; }
                 #print(nome) 
 
                 # Renomear o arquivo conforme o banco de dados
-                alertNomesRenomeados = RenomearArquivoGeradoPeloLerPdf(caminho_pdf, nome, dt)
+                alertNomesRenomeados = RenomearArquivoGeradoPeloLerPdf(caminho_pdf, nome)
                 print(alertNomesRenomeados)
                 self.nomes_armazenados.append(nome)
                 self.update_table()
