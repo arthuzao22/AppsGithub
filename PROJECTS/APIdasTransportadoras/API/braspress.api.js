@@ -4,7 +4,7 @@ var authorizationBasic = btoa(username + ':' + password); // Codificando em Base
 
 $.ajax({
     type: 'GET',
-    url: 'https://api.braspress.com/v1/tracking/25370117000198/15288/json',  // Substitua pelos valores corretos de CNPJ e Nota Fiscal
+    url: 'https://api.braspress.com/v1/tracking/25370117000198/0/json',  // Substitua pelos valores corretos de CNPJ e Nota Fiscal
     dataType: 'json',  // Define que o retorno será no formato JSON
     contentType: 'application/json; charset=utf-8',
     xhrFields: {
