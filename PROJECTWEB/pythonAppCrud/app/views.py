@@ -1,6 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from app.forms import CarrosForm
 from app.models import Carros
+from django.contrib.auth import authenticate, login as auth_login
+from django.http import HttpResponse
+from django.shortcuts import render
+from django.contrib import messages
+
 
 # Create your views here.
 def home(request):
@@ -52,3 +57,18 @@ def delete(request, pk):
     db = Carros.objects.get(pk=pk)
     db.delete()
     return redirect('home')
+
+def user_login(request):
+    if request.method == "GET":
+        return render(request, 'login.html')
+    else:
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        
+        user = authenticate(request, username=username, password=password)
+        
+        if user:
+            auth_login(request, user)
+            return HttpResponse('autenticado')
+        else:
+            return HttpResponse('deu ruim')
