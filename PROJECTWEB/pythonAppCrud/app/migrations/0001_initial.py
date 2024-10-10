@@ -12,14 +12,20 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Carros',
+            name='Funcionarios',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('modelo', models.CharField(max_length=150)),
-                ('marca', models.CharField(max_length=100)),
-                ('ano', models.IntegerField()),
-                ('username', models.CharField(max_length=100)),
-                ('password', models.CharField(max_length=100)),
+                ('nome', models.CharField(max_length=150)),
+                ('registro', models.CharField(max_length=50)),
+                ('funcao', models.CharField(max_length=100)),
+                ('data_nascimento', models.DateField()),
+                ('data_admissao', models.DateField()),
+                ('cpf', models.CharField(max_length=11)),
+                ('conta_inter', models.CharField(max_length=20)),
+                ('ultimo_exame', models.DateField(null=True, blank=True)),
+                ('proximo_exame', models.DateField(null=True, blank=True)),
+                ('email', models.EmailField(max_length=100)),
+                ('salario', models.DecimalField(max_digits=10, decimal_places=2)),
             ],
         ),
     ]

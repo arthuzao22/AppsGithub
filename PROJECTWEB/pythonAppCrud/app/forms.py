@@ -1,8 +1,8 @@
 from django.forms import ModelForm
-from app.models import Carros 
+from app.models import Funcionarios
 
-class CarrosForm(ModelForm):
+class FuncionariosForm(ModelForm):
     
     class Meta:
-        model = Carros
-        fields = ['modelo', 'marca', 'ano', 'username', 'password']
+        model = Funcionarios
+        fields = ['nome', 'registro', 'funcao', 'data_nascimento', 'data_admissao', 'cpf', 'conta_inter', 'ultimo_exame', 'proximo_exame', 'email', 'salario']
