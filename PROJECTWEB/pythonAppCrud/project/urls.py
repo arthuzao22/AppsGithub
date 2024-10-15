@@ -1,22 +1,18 @@
-"""
-URL configuration for project project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
-from app.views import home, form, create, view, edit, update, delete, user_login, indexFuncionarios
+from app.views import (
+    home,
+    form,
+    create,
+    view,
+    edit,
+    update,
+    delete,
+    user_login,
+    indexFuncionarios,
+    createlogin,
+    manipulate_funcionarios,
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,7 +25,11 @@ urlpatterns = [
     path('update/<int:pk>/', update, name='update'),
     path('delete/<int:pk>/', delete, name='delete'),
     
-    #login
-    path('login/', user_login, name='user_login'),  # Alterar para user_login
+    # Login URLs
+    path('login/', user_login, name='user_login'),
+    path('createlogin/', createlogin, name='createlogin'),
+    
+    #manipulação
+    path('manipulate_funcionarios/', manipulate_funcionarios, name='manipulate_funcionarios'),
 
 ]

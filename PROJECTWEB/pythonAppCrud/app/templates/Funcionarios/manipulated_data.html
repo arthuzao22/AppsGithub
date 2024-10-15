@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados Manipulados</title>
+    <!-- Link do Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link do SheetJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mt-5">Dados Manipulados dos Funcionários</h1>
+        <div class="bg-light border rounded p-4 mt-4 shadow">
+            {{ data|safe }}
+        </div>
+        <button id="exportBtn" class="btn btn-primary mt-4">Exportar para Excel</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('exportBtn').addEventListener('click', function() {
+            // Converta a string HTML de dados para um formato utilizável
+            const rows = Array.from(document.querySelectorAll('.bg-light table tr'));
+            const data = rows.map(row => {
+                return Array.from(row.querySelectorAll('td, th')).map(cell => cell.innerText);
+            });
+
+            // Cria uma nova planilha
+            const ws = XLSX.utils.aoa_to_sheet(data);
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, "Funcionários");
+
+            // Exportar a planilha
+            XLSX.writeFile(wb, "Funcionarios.xlsx");
+        });
+    </script>
+</body>
+</html>
