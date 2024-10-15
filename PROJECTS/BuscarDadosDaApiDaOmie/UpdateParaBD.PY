@@ -7,7 +7,7 @@ def criar_conexao():
         "mssql+pyodbc:///?odbc_connect="
         "DRIVER={ODBC Driver 17 for SQL Server};" 
         "SERVER=DESKTOP-2MF5QCV;"  # Seu servidor
-        "DATABASE=BASE_LISTAR_MOVIMENTOS;"  # Seu banco de dados
+        "DATABASE=OMIE_CONTAS_A_PAGAR;"  # Seu banco de dados
         "Trusted_Connection=yes;"  # Conexão autenticada
     )
     return create_engine(conn_str)
@@ -48,17 +48,17 @@ def processar_dados():
 
     # Query de DELETE
     query_delete = """
-        SELECT * FROM [CONTAS_GERAL_GRAFICA_EDUCA]
+        SELECT * FROM BASE_LISTAR_MOVIMENTOS.[dbo].[CONTAS_GERAL_GRAFICA_ITAMAR]
     """
 
     # Executando a query de DELETE
     executar_query(engine, query_delete)
 
     # Caminho do arquivo CSV
-    csv_file = r'..\PROJECT05\Dados\contas_GERAL_omie_EDUCA.csv'
+    csv_file = r'C:\Users\João Pedro Cordeiro\Documents\GitHub\AppsGithub\PROJECTS\BuscarDadosDaApiDaOmie\Dados\contas_receber_omie.csv'
     
     # Nome da tabela no SQL Server
-    table_name = 'CONTAS_GERAL_GRAFICA_EDUCA'
+    table_name = 'CATEGORIAS_CONTAS_A_PAGAR'
 
     # Carregando o CSV
     df = carregar_csv(csv_file)
