@@ -35,20 +35,19 @@ def view(request, pk):
 
 # Edit
 def edit(request, pk):
-    carro = get_object_or_404(Funcionarios, pk=pk)  # Safely get object
-    data = {}
-    data['form'] = FuncionariosForm(instance=carro)
-    return render(request, 'Funcionarios/form.html', data)
+    funcionario = get_object_or_404(Funcionarios, pk=pk)  # Safely get object
+    form = FuncionariosForm(instance=funcionario)  # Form with existing instance
+    return render(request, 'Funcionarios/form.html', {'form': form, 'db': funcionario})
 
 # Update
 def update(request, pk):
-    carro = get_object_or_404(Funcionarios, pk=pk)  # Safely get object
-    form = FuncionariosForm(request.POST or None, instance=carro)
+    funcionario = get_object_or_404(Funcionarios, pk=pk)  # Safely get object
+    form = FuncionariosForm(request.POST, instance=funcionario)  # Pass the POST data and the instance
     if form.is_valid():
-        form.save()  # Call save method with parentheses
-        return redirect('indexFuncionarios')
-    data = {'form': form}  # Pass the form back in case of invalid data
-    return render(request, 'Funcionarios/form.html', data)
+        form.save()  # Save the updated data
+        return redirect('indexFuncionarios')  # Redirect after a successful update
+    return render(request, 'Funcionarios/form.html', {'form': form, 'db': funcionario})  # Pass the form back in case of invalid data
+
 
 # app/views.py
 def indexFuncionarios(request):
@@ -64,9 +63,10 @@ def delete(request, pk):
     db.delete()
     return redirect('indexFuncionarios')
 
+#login
 def user_login(request):
     if request.method == "GET":
-        return render(request, 'login.html')
+        return render(request, 'login\login.html')
     else:
         username = request.POST.get('username')
         password = request.POST.get('password')
