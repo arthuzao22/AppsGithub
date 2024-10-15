@@ -23,3 +23,12 @@ class Funcionarios(models.Model):
 
     def __str__(self):
         return self.nome
+
+class Login(models.Model):
+    username = models.CharField(max_length=150, unique=True)
+    password = models.CharField(max_length=128)
+    funcionario = models.ForeignKey(Funcionarios, on_delete=models.CASCADE, null=True)  # Permitir valores nulos
+
+    def __str__(self):
+        return self.username
+
