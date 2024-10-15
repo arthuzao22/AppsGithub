@@ -30,8 +30,8 @@ class Migration(migrations.Migration):
             name='Login',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('usuario', models.CharField(max_length=100, unique=True)),  # Campo único para o usuário
-                ('senha', models.CharField(max_length=128)),  # Campo para armazenar senha (use hashing na aplicação)
+                ('username', models.CharField(max_length=100, unique=True)),  # Campo único para o usuário
+                ('password', models.CharField(max_length=128)),  # Campo para armazenar senha (use hashing na aplicação)
             ],
         ),
     ]

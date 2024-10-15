@@ -1,21 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from app.forms import FuncionariosForm
-from app.models import Funcionarios
-from django.contrib.auth import authenticate, login as auth_login
-from django.http import HttpResponse
-from django.shortcuts import render
 from django.contrib import messages
-
+from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth.hashers import make_password, check_password  # Correção dos nomes das funções
+from app.forms import FuncionariosForm, LoginForm
+from app.models import Login, Funcionarios
 
 # Create your views here.
 def home(request):
-    data = {}
-    data['db'] = Funcionarios.objects.all()
+    data = {'db': Funcionarios.objects.all()}
     return render(request, 'index.html', data)
 
 def form(request):
-    data = {}
-    data['form'] = FuncionariosForm()
+    data = {'form': FuncionariosForm()}
     return render(request, 'Funcionarios/form.html', data)
 
 # Create
@@ -23,58 +19,63 @@ def create(request):
     form = FuncionariosForm(request.POST or None)
     if form.is_valid():
         form.save()
+        messages.success(request, "Funcionário criado com sucesso!")
         return redirect('indexFuncionarios')
-    data = {'form': form}  # Pass the form back in case of invalid data
+    data = {'form': form}
     return render(request, 'Funcionarios/form.html', data)
 
 # View
 def view(request, pk):
-    data = {}
-    data['db'] = get_object_or_404(Funcionarios, pk=pk)  # Safely get object
-    return render(request, 'Funcionarios/view.html', data)
+    funcionario = get_object_or_404(Funcionarios, pk=pk)
+    return render(request, 'Funcionarios/view.html', {'db': funcionario})
 
 # Edit
 def edit(request, pk):
-    funcionario = get_object_or_404(Funcionarios, pk=pk)  # Safely get object
-    form = FuncionariosForm(instance=funcionario)  # Form with existing instance
+    funcionario = get_object_or_404(Funcionarios, pk=pk)
+    form = FuncionariosForm(instance=funcionario)
     return render(request, 'Funcionarios/form.html', {'form': form, 'db': funcionario})
 
 # Update
 def update(request, pk):
-    funcionario = get_object_or_404(Funcionarios, pk=pk)  # Safely get object
-    form = FuncionariosForm(request.POST, instance=funcionario)  # Pass the POST data and the instance
+    funcionario = get_object_or_404(Funcionarios, pk=pk)
+    form = FuncionariosForm(request.POST, instance=funcionario)
     if form.is_valid():
-        form.save()  # Save the updated data
-        return redirect('indexFuncionarios')  # Redirect after a successful update
-    return render(request, 'Funcionarios/form.html', {'form': form, 'db': funcionario})  # Pass the form back in case of invalid data
+        form.save()
+        messages.success(request, "Funcionário atualizado com sucesso!")
+        return redirect('indexFuncionarios')
+    return render(request, 'Funcionarios/form.html', {'form': form, 'db': funcionario})
 
-
-# app/views.py
+# Index Funcionarios
 def indexFuncionarios(request):
-    data = {}
-    data['db'] = Funcionarios.objects.all()
-    return render(request, 'Funcionarios/indexFuncionarios.html', data)  # Substitua pelo nome correto do seu template
+    data = {'db': Funcionarios.objects.all()}
+    return render(request, 'Funcionarios/indexFuncionarios.html', data)
 
-
-#delete
+# Delete
 def delete(request, pk):
-    carro = get_object_or_404(Funcionarios, pk=pk)
-    db = Funcionarios.objects.get(pk=pk)
-    db.delete()
+    funcionario = get_object_or_404(Funcionarios, pk=pk)
+    funcionario.delete()
+    messages.success(request, "Funcionário deletado com sucesso!")
     return redirect('indexFuncionarios')
 
-#login
+# Login
 def user_login(request):
-    if request.method == "GET":
-        return render(request, 'login\login.html')
-    else:
+    if request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
         
-        user = authenticate(request, username=username, password=password)
+        # Verificar se os campos estão preenchidos
+        if not all([username, password]):
+            messages.error(request, "Por favor, insira um nome de usuário e senha.")
+            return render(request, 'login/login.html')
         
-        if user:
+        # Tentar autenticar o usuário
+        user = authenticate(username=username, password=password)
+        
+        if user is not None:
             auth_login(request, user)
-            return HttpResponse('autenticado')
+            messages.success(request, "Login bem-sucedido!")
+            return redirect('indexFuncionarios')
         else:
-            return HttpResponse('deu ruim')
+            messages.error(request, "Credenciais inválidas")
+    
+    return render(request, 'login/login.html')

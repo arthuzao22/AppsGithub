@@ -22,11 +22,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('form/', form, name='form'),
-    path('login/', user_login, name='login'),  # Alterar para user_login
     path('create/', create, name='create'),
     path('indexFuncionarios/', indexFuncionarios, name='indexFuncionarios'),
     path('view/<int:pk>/', view, name='view'),
     path('edit/<int:pk>/', edit, name='edit'),
     path('update/<int:pk>/', update, name='update'),
     path('delete/<int:pk>/', delete, name='delete'),
+    
+    #login
+    path('login/', user_login, name='user_login'),  # Alterar para user_login
+
 ]

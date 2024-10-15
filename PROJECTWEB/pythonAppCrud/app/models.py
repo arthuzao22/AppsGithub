@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import RegexValidator, EmailValidator
+from django.contrib.auth.hashers import make_password
 
 # Create your models here.
 class Funcionarios(models.Model):
@@ -24,11 +25,17 @@ class Funcionarios(models.Model):
     def __str__(self):
         return self.nome
 
+
 class Login(models.Model):
     username = models.CharField(max_length=150, unique=True)
-    password = models.CharField(max_length=128)
-    funcionario = models.ForeignKey(Funcionarios, on_delete=models.CASCADE, null=True)  # Permitir valores nulos
+    password = models.CharField(max_length=128)  # Considerando o uso de hashing
+    funcionario = models.ForeignKey(Funcionarios, on_delete=models.SET_NULL, null=True)  # Permitir valores nulos
+
+    def save(self, *args, **kwargs):
+        # Hash a senha antes de salvar
+        if self.password:
+            self.password = make_password(self.password)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.username
-
